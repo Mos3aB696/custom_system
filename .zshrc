@@ -10,10 +10,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="amuse"
 #ZSH_THEME="bira"
-#ZSH_THEME="fino-time" # The Best Theme
+ZSH_THEME="fino-time" # The Best Theme
 #ZSH_THEME="agnoster" # Second Best Theme
 #ZSH_THEME="cloud" # Nice
-ZSH_THEME="crunch" # Nice
+#ZSH_THEME="crunch" # Nice
 #ZSH_THEME="dogenpunk" # Nice
 
 
@@ -120,31 +120,52 @@ source $ZSH/oh-my-zsh.sh
 #code One
 alias u='sudo dnf --refresh upgrade && flatpak update -y'
 
-#Gulp Path
-alias gulpPath='cd /mnt/Life/Learn-Programming/Front-End/Projects/GulpJs'
-
-#ALX Path
-alias alxPath='cd /mnt/Life/Learn-Programming/ALX/alxTasks'
-
 #Clear memory cache 
 alias cmc='sync && echo 3 | sudo tee /proc/sys/vm/drop_caches'
+
+# Open Directory
+alias open='xdg-open'
 
 # Root Database
 alias root_db='mycli -u root -h localhost'
 
-# eCommerce Path
-alias eCommerce='cd /mnt/life/Learn-Programming/Back-End/BackEnd_Projects/eCommerce'
-
 # Coloize cat 
 alias cat="pygmentize -g"
 
-# Open Directory
-alias open='xdg-open'
+###Pathes
+
+#Gulp Path
+alias gulp='cd /mnt/life/Learn-Programming/Front-End/Front_End_Codes/GulpJs'
+
+#ALX Path
+alias alx='cd /mnt/life/Learn-Programming/ALX/alxTasks/'
+
+# eCommerce Path
+alias eCommerce='cd /mnt/life/Learn-Programming/Back-End/BackEnd_Projects/eCommerce'
+
+# VueJs Path
+alias vue='cd /mnt/life/Learn-Programming/Front-End/Front_End_Codes/Learn_VueJS'
+
+# JestJs Path
+alias jest='cd /mnt/life/Learn-Programming/Front-End/Front_End_Codes/JestJs'
+
+# Projects Pathes (VSCODE)
+
+# eCommerce Path
+alias pro_eCommerce='open /mnt/life/Learn-Programming/Back-End/BackEnd_Projects/eCommerce/eCommerce.code-workspace'
+
+# Alx Path
+alias pro_alx='open /mnt/life/Learn-Programming/ALX/alxTasks/alxTasks.code-workspace'
+
+# My_code Path
+alias pro_my_code='open /mnt/life/Learn-Programming/ALX/my_code/my_code.code-workspace'
+
+# Learn Frontend Path
+alias pro_frontend='open /mnt/life/Learn-Programming/Front-End/Front_End_Codes/Front_End_Codes.code-workspace'
+
+
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-# Load Angular CLI autocompletion.
-#source <(ng completion script)
