@@ -118,7 +118,7 @@ source $ZSH/oh-my-zsh.sh
 
 #My Code 
 #code One
-alias u='sudo dnf --refresh upgrade && flatpak update -y'
+alias update='sudo apt update && sudo apt upgrade -y && flatpak update -y && sudo snap refresh'
 
 #Clear memory cache 
 alias cmc='sync && echo 3 | sudo tee /proc/sys/vm/drop_caches'
