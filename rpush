@@ -1,0 +1,7 @@
+#!/bin/sh
+read fileName
+read message
+
+git rm $fileName
+git commit -m "$message"
+git push
