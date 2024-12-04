@@ -1,0 +1,8 @@
+#!/bin/sh
+read dirName
+read message
+
+git rm -r $dirName
+git commit -m "$message"
+git push
+
