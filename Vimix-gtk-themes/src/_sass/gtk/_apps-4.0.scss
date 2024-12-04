@@ -1,0 +1,925 @@
+
+
+//
+// Nautilus
+//
+
+window.background.nautilus-window {
+  placessidebar {
+    list.navigation-sidebar > row.sidebar-row {
+      margin: 0;
+      border-radius: 0;
+
+      &:hover {
+        color: $indicator;
+        background-color: transparent;
+        box-shadow: inset 3px 0 $indicator;
+      }
+
+      &:active { box-shadow: inset 3px 0 $indicator; }
+
+      &:backdrop { opacity: 0.85; }
+
+      &:selected {
+        box-shadow: inset 3px 0 $indicator;
+
+        &:active { box-shadow: none; }
+
+        &:hover {
+          color: $text;
+          background-color: $overlay-focus-hover;
+        }
+      }
+    }
+  }
+
+  .nautilus-grid-view {
+    gridview > child {
+      border-radius: $modal_radius;
+      @include ripple(flat);
+
+      &:selected {
+        background-color: $overlay-checked;
+        color: $text;
+      }
+
+      &.activatable {
+        &:hover {
+          background-color: $overlay-hover;
+          color: $text;
+        }
+
+        &:active {
+          background-color: $overlay-normal;
+          color: $text;
+        }
+
+        &:selected {
+          background-color: $overlay-checked;
+          color: $text;
+        }
+      }
+    }
+  }
+
+  .nautilus-grid-view gridview.view,
+  .nautilus-list-view columnview.view {
+    background-color: transparent;
+  }
+}
+
+#NautilusViewCell {
+  clamp box {
+    margin: 0;
+    border-spacing: 0;
+  }
+}
+
+#NautilusQueryEditor { // search entry
+  border-radius: $button_radius;
+
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  > menubutton {
+    margin: 0;
+
+    > button.image-button.toggle {
+      min-width: 24px;
+      min-height: 24px;
+      margin: 0;
+      padding: 0;
+      border-radius: $button_radius;
+      @extend %flat_button;
+      color: on($header, secondary);
+
+      &:hover, &:active, &:checked {
+        color: on($header);
+      }
+    }
+  }
+
+  #NautilusQueryEditorTag {
+    border-radius: $circular_radius;
+
+    > button {
+      margin: 0;
+      padding: 0;
+      min-height: $small-size - 2px;
+      min-width: $small-size - 2px;
+    }
+  }
+}
+
+#NautilusPathBar {
+  background-color: on($header, fill);
+  border-radius: $button_radius;
+  margin: $space_size 0;
+
+  #NautilusPathButton {
+    margin: 0 $space_size / 2;
+    border-radius: $button_radius;
+    @extend %simple_flat_button;
+
+    &:hover, &:active {
+      color: on($header);
+    }
+
+    &.current-dir {
+      color: on($header);
+
+      &:hover, &:active {
+        background: none;
+        box-shadow: none;
+      }
+    }
+
+    &:first-child { margin-left: 0; }
+  }
+
+  > menubutton {
+    margin: 0;
+  }
+}
+
+// Floating status bar
+.floating-bar {
+  min-height: $item_size;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: $base;
+  background-clip: $extra_background_clip;
+  transition: $shorter_transition;
+  box-shadow: 0 0 0 1px $border;
+
+  &.bottom.left { // axes left border and border radius
+    border-top-right-radius: 3px;
+  }
+
+  &.bottom.right { // axes right border and border radius
+    border-top-left-radius: 3px;
+  }
+
+  button {
+    margin: 8px;
+
+    @extend %small_button;
+    @extend %simple_flat_button;
+  }
+}
+
+//
+// Calendar
+//
+
+// labels
+label {
+  &.primary-label, &.month-name, &.secondary-label {
+    font-size: 16pt;
+    font-weight: bold;
+    padding: $space_size * 2;
+  }
+
+  &.primary-label, &.month-name {
+    color: $primary;
+  }
+
+  &.secondary-label {
+    color: $text_disabled;
+  }
+}
+
+calendar-view {
+  font-size: 10pt;
+
+  &:selected {
+    color: $primary;
+    font-weight: bold;
+  }
+}
+
+calendar-view.header,
+label.header {
+  font-size: 10pt;
+  font-weight: bold;
+  color: $text_disabled;
+}
+
+calendar-view.current,
+weekgrid.current {
+  background-color: gtkalpha($primary, 0.3);
+}
+
+datechooser {
+  padding: $space_size;
+
+  button.flat.pill, button.circular.day {
+    min-height: $small_size;
+    min-width: $small_size;
+    padding: $space_size;
+    border-radius: $circular_radius;
+  }
+
+  button.circular.day {
+    @extend %flat_button;
+
+    &:selected {
+      @extend %selected_items;
+    }
+  }
+
+  .current-week {
+    background-color: $border;
+  }
+}
+
+agenda-view list.background {
+  background-color: transparent;
+}
+
+headerbar {
+  menubutton.sources-button {
+    margin: 0;
+
+    > button {
+      border-radius: 0;
+      margin: 0;
+    }
+  }
+}
+
+window.background {
+  > contents > toastoverlay > leaflet > box > headerbar {
+    border-top-left-radius: 0;
+  }
+}
+
+//
+// Gnome Software
+//
+
+.details-page {
+  margin: $space_size * 4 0px;
+}
+
+.installed-overlay-box {
+  font-size: smaller;
+  background-color: $primary;
+  border-radius: 0;
+  color: on($primary);
+  text-shadow: 0 1px 0 rgba(black, 0.2);
+}
+
+screenshot-carousel box.frame {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+screenshot-carousel button,
+.featured-carousel button {
+  margin: $space_size * 2;
+}
+
+.screenshot-image-main .image1,
+.screenshot-image-main .image2 {
+  margin-top: $space_size;
+  margin-bottom: $space_size * 2;
+  margin-left: $space_size;
+  margin-right: $space_size;
+}
+
+.app-tile-label {
+  font-size: 105%;
+}
+
+.review-textbox {
+  padding: $space_size;
+}
+
+.origin-rounded-box {
+  background-color: $divider;
+  border-radius: $circular_radius;
+  padding: $space_size - 2px;
+}
+
+.origin-beta {
+  color: $warning;
+}
+
+.origin-button > button {
+  padding: $space_size / 2 $space_size * 1.5;
+}
+
+flowboxchild {
+  &.card:not(.category-tile) {
+    padding: 0;
+    margin: 0;
+    box-shadow: 0;
+    background-color: transparent;
+  }
+}
+
+.category-tile.card {
+  padding: $space_size * 3.5;
+  border: none;
+  border-radius: $button_radius;
+  min-width: 140px;
+  font-weight: 900;
+  font-size: larger;
+
+  &:not(.category-tile-iconless) {
+    &, &:hover, &:active {
+      transition: $longer_transition;
+      animation: none;
+    }
+  }
+
+  &.category-tile-iconless {
+    padding: $space_size * 1.5 $space_size * 2.5;
+    min-width: 130px;
+    font-size: 105%;
+    font-weight: normal;
+  }
+
+  // Styling for specific category buttons.
+  &.category-create {
+    background-image: linear-gradient(180deg, #ce8cd7 0%, #2861c6 100%);
+    color: white;
+    background-size: auto;
+    background-repeat: no-repeat;
+  
+    &:hover {
+      background-image: linear-gradient(180deg, shade(#ce8cd7, 1.07) 0%, shade(#2861c6, 1.1) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(180deg, shade(#ce8cd7, .95) 0%, shade(#2861c6, .95) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-develop {
+    background: #5e5c64;
+    color: white;
+  
+    &:hover {
+      background: shade(#5e5c64, 1.2);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-color: shade(#5e5c64, .95);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-learn {
+    background-image: linear-gradient(180deg, #2ec27e 30%, #27a66c 100%);
+    color: white;
+  
+    &:hover {
+      background-image: linear-gradient(180deg, shade(#2ec27e, 1.06) 30%, shade(#27a66c, 1.06) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(180deg, shade(#2ec27e, .95) 30%, shade(#27a66c, .95) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-play {
+    background-image: linear-gradient(75deg, #f9e2a7 0%, #eb5ec3 50%, #6d53e0 100%);
+    color: #393484;
+  
+    &:hover {
+      background-image: linear-gradient(75deg, shade(#f9e2a7, 1.07) 0%, shade(#eb5ec3, 1.07) 50%, shade(#6d53e0, 1.07) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(75deg, shade(#f9e2a7, .97) 0%, shade(#eb5ec3, .95) 50%, shade(#6d53e0, 1.07) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-socialize {
+    background-image: linear-gradient(90deg, #ef4e9b 0%, #f77466 100%);
+    color: $text-secondary;
+  
+    &:hover {
+      background-image: linear-gradient(90deg, shade(#ef4e9b, 1.08) 0%, shade(#f77466, 1.08) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(90deg, shade(#ef4e9b, .95) 0%, shade(#f77466, .95) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-work {
+    color: #1c71d8;
+    background-color: #fdf8d7;
+    background-image: linear-gradient($border 1px, transparent 1px),
+                      linear-gradient(90deg, $border 1px, transparent 1px);
+    background-size: 10px 10px, 10px 10px;
+    background-position: -1px -4px, center -1px;
+    background-repeat: repeat;
+  
+    &:hover {
+      background-color: lighten(#fdf8d7, 5%);
+      background-image: linear-gradient($border 1px, transparent 1px),
+                        linear-gradient(90deg, $border 1px, transparent 1px);
+      background-size: 10px 10px, 10px 10px;
+      background-position: -1px -4px, center -1px;
+      background-repeat: repeat;
+    }
+  
+    &:active {
+      background-color: darken(#fdf8d7, 5%);
+      background-image: linear-gradient($border 1px, transparent 1px),
+                        linear-gradient(90deg, $border 1px, transparent 1px);
+      background-size: 10px 10px, 10px 10px;
+      background-position: -1px -4px, center -1px;
+      background-repeat: repeat;
+    }
+  }
+}
+
+app-context-bar {
+  > box:not(:first-child) > button.flat {
+    border-radius: 0;
+
+    &:last-child {
+      border-radius: 0 $button_radius $button_radius 0;
+    }
+  }
+
+  > box:first-child > button.flat {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: $button_radius 0 0 $button_radius;
+    }
+  }
+
+  > box > button.flat {
+    border-left-color: $border;
+  }
+}
+
+carousel.card {
+  border: none;
+}
+
+.context-tile-lozenge {
+  min-height: 28px;
+  min-width: 28px;
+  padding: $space_size;
+}
+
+screenshot-carousel box.frame.view {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+//
+// Gnome Control Center
+//
+
+window.background {
+  > contents > leaflet {
+    stack.background {
+      background-color: transparent;
+
+      headerbar {
+        border-top-left-radius: 0;
+      }
+    }
+  }
+}
+
+preferencesgroup > box {
+  button.background-preview-button.toggle {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    outline-width: 2px solid transparent;
+    outline-offset: $space_size / 2;
+
+    &, > background-preview {
+      border-radius: 6px;
+    }
+
+    &:hover {
+      outline: 2px solid $divider;
+    }
+
+    &:active {
+      outline: 2px solid $track;
+    }
+
+    &:checked {
+      outline: 2px solid $primary;
+    }
+  }
+
+  flowbox.background-flowbox > flowboxchild {
+    outline: 2px solid transparent;
+    outline-offset: 0;
+    border-radius: 6px + $space_size / 2;
+    padding: $space_size / 2;
+
+    > .background-thumbnail {
+      border-radius: 6px;
+    }
+
+    &:hover {
+      outline-color: $text-secondary-disabled;
+    }
+
+    &:active {
+      outline-color: $text-disabled;
+    }
+
+    &:selected {
+      outline-color: $primary;
+      background-color: transparent;
+    }
+
+    image.selected-check {
+      border-radius: $circular_radius;
+      padding: $space_size;
+      margin: $space_size;
+    }
+  }
+}
+
+//
+// Gnome Calculator
+//
+
+window.background.csd {
+  > contents > box {
+    .history-view {
+      background-color: $base;
+    }
+
+    .math-buttons button.clear-button.image-button {
+      border-radius: $button_radius;
+    }
+  }
+}
+
+.display-container {
+  .small &.card {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .history-view { background-color: $base; }
+
+  #displayitem {
+    padding: 0 12px 8px 0;
+    font-size: 1.4em;
+    border-top: 1px solid $border;
+  }
+}
+
+mathconverter {
+  > box {
+    margin: $space_size * 2 $space_size * 2 0;
+  }
+}
+
+.converter {
+  margin: $space_size $space_size * 2;
+}
+
+.math-buttons {
+  > grid {
+    margin: $space_size * 2;
+  }
+
+  button {
+    font-size: 1.1em;
+  }
+}
+
+leaflet {
+  button.number-button {
+    background-color: rgba($text, 0.1);
+
+    &:hover {
+      background-color: rgba($text, 0.2);
+    }
+
+    &:active {
+      background-color: rgba($text, 0.3);
+    }
+  }
+}
+
+//
+// Gnome Web
+//
+
+entry.location-entry {
+  padding: ($medium_size - 24px) / 2;
+
+  > text {
+    margin: 0 $space_size;
+  }
+
+  > progress {
+    margin: 0;
+  }
+
+  > button.image-button,
+  > menubutton > button.image-button {
+    min-height: 24px;
+    min-width: 24px;
+    padding: 0;
+  }
+}
+
+//
+// Gnome Clock
+//
+
+label.clock-time.numeric {
+  padding: 0 $space_size * 2;
+}
+
+//
+// avatar
+//
+
+avatar {
+  border-radius: $circular_radius;
+  font-weight: bold;
+
+  // The list of colors to generate avatars.
+  // Each avatar color is represented by a font color, a gradient start color and a gradient stop color.
+  // There are 8 different colors for avtars in the list if you change the number of them you
+  // need to update the NUMBER_OF_COLORS in src/adw-avatar.c.
+  // The 2D list has this form: ((font-color, gradient-top-color, gradient-bottom-color)).
+  $avatarcolorlist: (
+   (#cfe1f5, #83b6ec, #337fdc), // blue
+   (#caeaf2, #7ad9f1, #0f9ac8), // cyan
+   (#cef8d8, #8de6b1, #29ae74), // green
+   (#e6f9d7, #b5e98a, #6ab85b), // lime
+   (#f9f4e1, #f8e359, #d29d09), // yellow
+   (#ffead1, #ffcb62, #d68400), // gold
+   (#ffe5c5, #ffa95a, #ed5b00), // orange
+   (#f8d2ce, #f78773, #e62d42), // raspberry
+   (#fac7de, #e973ab, #e33b6a), // magenta
+   (#e7c2e8, #cb78d4, #9945b5), // purple
+   (#d5d2f5, #9e91e8, #7a59ca), // violet
+   (#f2eade, #e3cf9c, #b08952), // beige
+   (#e5d6ca, #be916d, #785336), // brown
+   (#d8d7d3, #c0bfbc, #6e6d71), // gray
+  );
+
+  @for $i from 1 through length($avatarcolorlist) {
+    &.color#{$i} {
+      $avatarcolor: nth($avatarcolorlist, $i);
+      background-image: linear-gradient(nth($avatarcolor, 2), nth($avatarcolor, 3));
+      color: nth($avatarcolor, 1);
+    }
+  }
+
+  &.contrasted { color: white; }
+
+  &.image { background: none; }
+}
+
+//
+// preferencespage
+//
+
+preferencespage > scrolledwindow > viewport > clamp > box {
+  margin: 24px 12px;
+  border-spacing: 24px;
+}
+
+preferencesgroup > box {
+  &, .labels {
+    border-spacing: $space_size;
+  }
+
+  > box.header:not(.single-line) {
+    margin-bottom: $space_size;
+  }
+
+  > box.single-line {
+    min-height: 34px;
+  }
+}
+
+//
+// AdwStatusPage
+//
+
+statuspage {
+  > scrolledwindow > viewport > box {
+    margin: 36px $space_size * 2;
+    border-spacing: 36px;
+
+    > clamp > box {
+      border-spacing: $space_size * 2;
+
+      > .icon {
+        -gtk-icon-size: 128px;
+
+        color: gtkalpha(currentColor, 0.55);
+
+        &:disabled {
+          opacity: 0.35;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+
+  &.compact > scrolledwindow > viewport > box {
+    margin: 24px 12px;
+    border-spacing: 24px;
+
+    > clamp > box {
+      > .icon {
+        -gtk-icon-size: 96px;
+
+        &:not(:last-child) {
+          margin-bottom: $space_size * 2;
+        }
+      }
+
+      > .title {
+        font-size: 18pt;
+      }
+    }
+  }
+}
+
+//
+// Cards
+//
+
+.card {
+  @at-root %card, & {
+    background-color: $menu;
+    color: $text;
+    border-radius: $menu_radius;
+    box-shadow: 0 0 0 1px transparentize(black, 0.97),
+                0 1px 3px 1px transparentize(black, .93),
+                0 2px 6px 2px transparentize(black, .97);
+
+    .osd &, &.osd {
+      background-color: gtkalpha(currentColor, .1);
+      color: inherit;
+      box-shadow: none;
+    }
+  }
+
+  &.activatable {
+    &:hover {
+      background-image: image(gtkalpha(currentColor, .03));
+    }
+
+    &:active {
+      background-image: image(gtkalpha(currentColor, .08));
+    }
+  }
+}
+
+// ThemeSelector
+themeselector, // Gnome text editor
+panelthemeselector { // Gnome builder
+  margin: $space_size * 1.5;
+
+  checkbutton {
+    padding: 0;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 1px;
+    background-clip: content-box;
+    border-radius: $circular-radius;
+    box-shadow: inset 0 0 0 1px $border;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $text-secondary-disabled;
+    }
+
+    &:checked {
+      box-shadow: inset 0 0 0 2px $primary;
+    }
+
+    &.follow {
+      background-image: linear-gradient(to bottom right, #ffffff 50%, #202020 50%);
+    }
+
+    &.light {
+      background-color: #ffffff;
+    }
+
+    &.dark {
+      background-color: #202020;
+    }
+
+    &.theme-selector radio {
+      -gtk-icon-source: none;
+      border: none;
+      background: none;
+      box-shadow: none;
+      min-height: 20px;
+      min-width: 20px;
+      padding: 0;
+      margin: 0;
+
+      &:hover, &:active, &:checked {
+        background-color: transparent;
+      }
+
+      &:checked {
+        -gtk-icon-size: 20px;
+        -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/check-symbolic.svg")));
+        color: on($primary);
+        background-image: image($primary);
+      }
+    }
+  }
+}
+
+themeswitcher { // Gnome console
+  padding: $space_size;
+
+  .check {
+    min-height: 20px;
+    min-width: 20px;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border-radius: $circular_radius;
+    color: on($primary);
+    background-image: image($primary);
+  }
+
+  checkbutton {
+    padding: 0;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 1px;
+    background-clip: content-box;
+    border-radius: $circular_radius;
+    box-shadow: inset 0 0 0 1px $border;
+
+    &:checked {
+      box-shadow: inset 0 0 0 2px $primary;
+    }
+
+    radio {
+      &, &:hover, &:active, &:checked, &:checked:hover, &:checked:active {
+        background-color: transparent;
+        border: none;
+        background: none;
+        box-shadow: none;
+        color: transparent;
+        -gtk-icon-source: none;
+        -gtk-icon-size: 0;
+      }
+    }
+
+    &.system {
+      background: linear-gradient(-45deg, #1e1e1e 50%, white 50%);
+    }
+
+    &.light {
+      color: gtkalpha(black, .8);
+      background-color: white;
+    }
+
+    &.dark {
+      color: white;
+      background-color: #1e1e1e;
+    }
+  }
+}
