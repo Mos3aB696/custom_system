@@ -12,9 +12,9 @@ export ZSH="$HOME/.oh-my-zsh"
 #ZSH_THEME="bira"
 #ZSH_THEME="fino-time" # The Best Theme
 #ZSH_THEME="agnoster" # Second Best Theme
-ZSH_THEME="cloud" # Nice
+#ZSH_THEME="cloud" # Nice
 #ZSH_THEME="crunch" # Nice
-#ZSH_THEME="dogenpunk" # Nice
+ZSH_THEME="dogenpunk" # Nice
 
 
 # Set list of themes to pick from when loading at random
@@ -89,6 +89,7 @@ plugins=(
   frontend-search
   sudo
   web-search
+  vscode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
 #My Code 
 
 # Update Fedora
-alias update='sudo dnf5 upgrade --refresh && flatpak update -y'
+alias update='sudo dnf upgrade --refresh && flatpak update -y'
 
 # Clean Fedora
 alias clean='sudo dnf autoremove && sudo dnf clean all'
@@ -144,33 +145,22 @@ alias myCode='cd /mnt/life/Learn-Programming/ALX/my_code'
 # ALX Path
 alias Alx='cd /mnt/life/Learn-Programming/ALX/alxTasks/'
 
-# eCommerce Path
-alias eCommerce='cd /mnt/life/Learn-Programming/Back-End/BackEnd_Projects/eCommerce'
-
-# VueJs Path
-alias Vue='cd /mnt/life/Learn-Programming/Front-End/Front_End_Codes/Vue'
-
-# NodeJs Path
-alias Node='cd /mnt/life/Learn-Programming/Back-End/NodeJs/Code'
-
 # Projects Pathes (VSCODE)
 
 # eCommerce Path
-alias pro_eCommerce='open /mnt/life/Learn-Programming/Back-End/BackEnd_Projects/eCommerce/eCommerce.code-workspace'
-
-# Alx Path
-alias pro_alx='open /mnt/life/Learn-Programming/ALX/alxTasks/alxTasks.code-workspace'
+alias pro_eCommerce='open /mnt/code/eCommerce/betaVersion/eCommerce.code-workspace'
 
 # Node Path
-alias pro_node='open /mnt/life/Learn-Programming/Back-End/NodeJs/Code/Nodejs.code-workspace'
+alias pro_node='open /mnt/code/learnNode/Nodejs.code-workspace'
 
 # My_code Path
 alias pro_my_code='open /mnt/life/Learn-Programming/ALX/my_code/my_code.code-workspace'
 
 # Learn Frontend Path
-alias pro_frontend='open /mnt/life/Learn-Programming/Front-End/Front_End_Codes/Front_End_Codes.code-workspace'
+alias pro_frontend='open /mnt/code/FrontEnd_Projects/Front_End_Codes.code-workspace'
 
-# Config thefuck
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
+# Portfolio Path
+alias proPortfolio='code /mnt/code/my-portfolio/my-portfolio.code-workspace'
+
+# React Paht
+alias proReact='code /mnt/code/React_Code/React_Code.code-workspace'
