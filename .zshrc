@@ -90,6 +90,7 @@ plugins=(
   sudo
   web-search
   vscode
+  npm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -135,7 +136,6 @@ alias open='xdg-open'
 alias root_db='mycli -u root -h localhost'
 
 # Cat Command Stylign
-alias cat='ccat'
 
 ###Pathes
 
@@ -162,5 +162,5 @@ alias pro_frontend='open /mnt/code/FrontEnd_Projects/Front_End_Codes.code-worksp
 # Portfolio Path
 alias proPortfolio='code /mnt/code/my-portfolio/my-portfolio.code-workspace'
 
-# React Paht
-alias proReact='code /mnt/code/React_Code/React_Code.code-workspace'
+# React Path
+alias proReact='code /mnt/code/learnReact/learnReact.code-workspace'
